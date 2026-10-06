@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>작가 라운지 & 커뮤니티 | 글숲 Literary Atelier</title>
+    <meta name="description" content="글쓰기를 사랑하는 아마추어 작가들의 합평회, 창작 팁 공유, 프로필 소개 및 글쓰기 모임 공간">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <style>
+        .lounge-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 32px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .lounge-tab-btn {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+        }
+
+        .lounge-tab-btn.active {
+            background-color: var(--color-primary);
+            color: #FFF;
+        }
+
+        .lounge-card-box {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: all var(--transition-fast);
+        }
+
+        .lounge-card-box:hover {
+            background-color: #FFF;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .lounge-author-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 14px;
+        }
+
+        .lounge-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--color-primary);
+            color: #FFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-family: var(--font-serif);
+        }
+
+        .badge-club {
+            background-color: rgba(198, 152, 82, 0.15);
+            color: var(--color-gold);
+            padding: 2px 10px;
+            border-radius: var(--radius-full);
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">🌿</span>
+                <div class="logo-text">
+                    <span class="brand-title">글숲</span>
+                    <span class="brand-subtitle">LITERARY ATELIER</span>
+                </div>
+            </a>
+
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link"><i class="fa-solid fa-house"></i> 홈</a></li>
+                    <li><a href="gallery.html" class="nav-link"><i class="fa-solid fa-book-open"></i> 작품 관람</a></li>
+                    <li><a href="lounge.html" class="nav-link active"><i class="fa-solid fa-feather-pointed"></i> 작가 라운지</a></li>
+                    <li><a href="write.html" class="nav-link highlight-link"><i class="fa-solid fa-pen-nib"></i> 창작 및 투고</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="write.html" class="btn btn-primary"><i class="fa-solid fa-pen"></i> 글쓰기</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content" style="padding-top: 32px;">
+        <section>
+            <div class="section-container">
+                <div class="slider-header-title">
+                    <span class="badge badge-accent">WRITER COMMUNITY</span>
+                    <h2>작가 라운지 & 소통 공간</h2>
+                    <p>창작 팁 공유, 작품 합평회, 작가 모임 및 든든한 동료 창작자들과 교류해 보세요.</p>
+                </div>
+
+                <!-- Community Section Tabs -->
+                <div class="lounge-tabs" id="loungeTabs">
+                    <button class="lounge-tab-btn active" data-section="critique"><i class="fa-solid fa-comments"></i> 작품 합평회</button>
+                    <button class="lounge-tab-btn" data-section="tips"><i class="fa-solid fa-lightbulb"></i> 창작 팁 & 노하우</button>
+                    <button class="lounge-tab-btn" data-section="clubs"><i class="fa-solid fa-users"></i> 글쓰기 모임</button>
+                    <button class="lounge-tab-btn" data-section="writers"><i class="fa-solid fa-user-astronaut"></i> 이달의 작가 프로필</button>
+                </div>
+
+                <!-- Section 1: 작품 합평회 (Critique & Feedback) -->
+                <div id="sectionCritique">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="font-family: var(--font-serif); color: var(--color-primary);">소중한 원고를 서로 다듬어주는 합평 공간</h3>
+                        <button class="btn btn-primary" onclick="alert('합평 요청 글 작성 폼이 열립니다.')"><i class="fa-solid fa-pen"></i> 합평 글 등록</button>
+                    </div>
+
+                    <div class="lounge-card-box">
+                        <div class="lounge-author-header">
+                            <div class="lounge-avatar">한</div>
+                            <div>
+                                <h4>[합평요청] 시 '가을 정원'의 2연 운율 조언 부탁드립니다.</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted);">한가람 작가 • 2026.09.30 • 댓글 14개</p>
+                            </div>
+                        </div>
+                        <p style="font-family: var(--font-serif); color: var(--text-main); font-style: italic;">
+                            "나무 그늘 아래 고인 습기가 / 새벽의 안부를 가만히 어루만질 때... 이 구절의 은유가 자연스러운지 작가님들의 고견을 듣고 싶습니다."
+                        </p>
+                    </div>
+
+                    <div class="lounge-card-box">
+                        <div class="lounge-author-header">
+                            <div class="lounge-avatar" style="background:#8C6A48;">류</div>
+                            <div>
+                                <h4>[합평요청] 시티팝 어쿠스틱 가사 코러스 파트 운율 검토</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted);">류하 작가 • 2026.09.29 • 댓글 8개</p>
+                            </div>
+                        </div>
+                        <p style="font-family: var(--font-serif); color: var(--text-main); font-style: italic;">
+                            "2호선 순환선이라는 소재로 보컬이 소름 돋게 부를 수 있는 클라이맥스 구간의 4음보 배치가 어색하지 않은지 조언 부탁드립니다."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 2: 창작 팁 & 노하우 (Tips) -->
+                <div id="sectionTips" style="display: none;">
+                    <h3 style="font-family: var(--font-serif); color: var(--color-primary); margin-bottom: 20px;">선배 작가들이 공유하는 창작 노하우</h3>
+
+                    <div class="lounge-card-box">
+                        <span class="badge badge-accent" style="margin-bottom: 8px;">운문 팁</span>
+                        <h4>💡 시적 은유를 직유보다 자연스럽게 녹여내는 3가지 습관</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 6px;">
+                            ~처럼, ~같이 대신 사물의 속성을 동작으로 바꾸어 서술할 때 시적 분위기가 깊어집니다...
+                        </p>
+                    </div>
+
+                    <div class="lounge-card-box">
+                        <span class="badge badge-genre" style="margin-bottom: 8px;">극/대본 팁</span>
+                        <h4>💡 시나리오 대사에서 '설명조'를 없애고 살아있는 구어체로 바꾸는 팁</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 6px;">
+                            인물의 말 속에 감정을 모두 실으려 하지 말고, 지문과 행동을 활용해 입체감을 더해 보세요...
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 3: 글쓰기 모임 (Clubs) -->
+                <div id="sectionClubs" style="display: none;">
+                    <h3 style="font-family: var(--font-serif); color: var(--color-primary); margin-bottom: 20px;">함께 써나가는 시너지를 경험하는 소모임</h3>
+
+                    <div class="two-column-layout">
+                        <div class="lounge-card-box">
+                            <span class="badge-club">모집중 · 온라인</span>
+                            <h4 style="margin-top: 8px;">🌅 매일 새벽 6시 10분, 10줄 시 쓰기 클럽</h4>
+                            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 8px 0;">
+                                매일 아침 제공되는 단어를 주제로 시를 짓고 서로에게 격려를 보내는 감성 모임.
+                            </p>
+                            <button class="btn btn-outline-dark" onclick="alert('모임 신청이 완료되었습니다!')">참여 신청하기</button>
+                        </div>
+
+                        <div class="lounge-card-box">
+                            <span class="badge-club">모집중 · 주말</span>
+                            <h4 style="margin-top: 8px;">☕ 주말 합평 오프라인 독서 & 창작 모임</h4>
+                            <p style="font-size: 0.88rem; color: var(--text-muted); margin: 8px 0;">
+                                매주 토요일 오후, 조용한 삼청동 카페에서 모여 자작 수필과 시집을 나눕니다.
+                            </p>
+                            <button class="btn btn-outline-dark" onclick="alert('모임 신청이 완료되었습니다!')">참여 신청하기</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: 이달의 작가 프로필 (Writers) -->
+                <div id="sectionWriters" style="display: none;">
+                    <h3 style="font-family: var(--font-serif); color: var(--color-primary); margin-bottom: 20px;">글숲을 빛내는 작가들의 서재 프로필</h3>
+
+                    <div class="two-column-layout">
+                        <div class="lounge-card-box">
+                            <div class="lounge-author-header">
+                                <div class="lounge-avatar" style="width: 56px; height: 56px; font-size: 1.4rem;">윤</div>
+                                <div>
+                                    <h4 style="font-size: 1.2rem;">윤슬 작가</h4>
+                                    <p style="font-size: 0.85rem; color: var(--color-gold);">시 · 에세이 창작자</p>
+                                </div>
+                            </div>
+                            <p style="font-family: var(--font-serif); font-size: 0.95rem; margin-bottom: 12px;">
+                                "잔물결처럼 마음에 가만히 스며드는 시와 글을 지어 올립니다."
+                            </p>
+                            <a href="gallery.html?search=윤슬" class="btn btn-outline" style="font-size: 0.85rem;">작품 서재 구경하기</a>
+                        </div>
+
+                        <div class="lounge-card-box">
+                            <div class="lounge-author-header">
+                                <div class="lounge-avatar" style="width: 56px; height: 56px; font-size: 1.4rem; background: var(--bg-navy-accent);">서</div>
+                                <div>
+                                    <h4 style="font-size: 1.2rem;">서은우 작가</h4>
+                                    <p style="font-size: 0.85rem; color: var(--color-gold);">수필 · 산문 창작자</p>
+                                </div>
+                            </div>
+                            <p style="font-family: var(--font-serif); font-size: 0.95rem; margin-bottom: 12px;">
+                                "해 질 녘 골목길의 온기와 일상의 소중함을 다정한 언어로 채록합니다."
+                            </p>
+                            <a href="gallery.html?search=서은우" class="btn btn-outline" style="font-size: 0.85rem;">작품 서재 구경하기</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-bottom" style="border: none; padding: 0;">
+                <p>&copy; 2026 글숲 (Geulsoop Atelier). All rights reserved.</p>
+                <a href="../index.html" style="color: var(--color-gold);">← 메인 홈으로 돌아가기</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.lounge-tab-btn');
+            const sections = {
+                critique: document.getElementById('sectionCritique'),
+                tips: document.getElementById('sectionTips'),
+                clubs: document.getElementById('sectionClubs'),
+                writers: document.getElementById('sectionWriters')
+            };
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    const target = tab.dataset.section;
+                    Object.keys(sections).forEach(key => {
+                        sections[key].style.display = key === target ? 'block' : 'none';
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

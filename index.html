@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글숲 | 마음을 잇는 종합 문학 & 창작 아틀리에</title>
+    <meta name="description" content="시, 수필, 소설, 시나리오, 음악 가사 등 감성적인 텍스트 창작물을 나누는 아마추어 작가와 독자들의 공간">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🌿</span>
+                <div class="logo-text">
+                    <span class="brand-title">글숲</span>
+                    <span class="brand-subtitle">LITERARY ATELIER</span>
+                </div>
+            </a>
+
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active"><i class="fa-solid fa-house"></i> 홈</a></li>
+                    <li><a href="pages/gallery.html" class="nav-link"><i class="fa-solid fa-book-open"></i> 작품 관람</a></li>
+                    <li><a href="pages/lounge.html" class="nav-link"><i class="fa-solid fa-feather-pointed"></i> 작가 라운지</a></li>
+                    <li><a href="pages/write.html" class="nav-link highlight-link"><i class="fa-solid fa-pen-nib"></i> 창작 및 투고</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" id="globalSearch" placeholder="작품명, 작가, 가사 검색..." aria-label="검색">
+                    <button type="button" aria-label="검색 버튼"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <button class="btn btn-outline" id="loginBtn"><i class="fa-regular fa-user"></i> 로그인</button>
+                <a href="pages/write.html" class="btn btn-primary"><i class="fa-solid fa-pen"></i> 글쓰기</a>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="메뉴 열기">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNav">
+        <div class="mobile-nav-header">
+            <span class="brand-title">글숲</span>
+            <button id="closeMobileNav"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> 홈</a></li>
+            <li><a href="pages/gallery.html"><i class="fa-solid fa-book-open"></i> 작품 관람</a></li>
+            <li><a href="pages/lounge.html"><i class="fa-solid fa-feather-pointed"></i> 작가 라운지</a></li>
+            <li><a href="pages/write.html"><i class="fa-solid fa-pen-nib"></i> 창작 및 투고</a></li>
+        </ul>
+        <div class="mobile-actions">
+            <a href="pages/write.html" class="btn btn-primary btn-block"><i class="fa-solid fa-pen"></i> 새로 글 쓰기</a>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- 1. Featured Works Slider Banner (이주의 추천 작품 및 신작) -->
+        <section class="hero-slider-section">
+            <div class="section-container">
+                <div class="slider-header-title">
+                    <span class="badge badge-accent">PICK OF THE WEEK</span>
+                    <h2>이주의 추천 작품 & 신작 서재</h2>
+                    <p>글숲의 편집자와 독자들이 함께 선정한 감성 문학 모음집</p>
+                </div>
+
+                <div class="slider-wrapper" id="heroSlider">
+                    <!-- Slider slides dynamically rendered by JS -->
+                    <div class="slides-container" id="slidesContainer"></div>
+
+                    <!-- Slider Controls -->
+                    <button class="slider-nav prev-btn" id="sliderPrev" aria-label="이전 슬라이드"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="slider-nav next-btn" id="sliderNext" aria-label="다음 슬라이드"><i class="fa-solid fa-chevron-right"></i></button>
+                    
+                    <div class="slider-dots" id="sliderDots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Literary Quote Bar -->
+        <section class="quote-bar-section">
+            <div class="section-container">
+                <div class="quote-card">
+                    <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <blockquote class="quote-text" id="dailyQuote">
+                        "어두운 방 안을 밝히는 건 한 자루의 촛불이 아니라, 종이 위에 번져나가는 너의 이야기였다."
+                    </blockquote>
+                    <cite class="quote-author" id="dailyQuoteAuthor">— 글숲 오늘의 한 문장 (에세이 『달의 궤적』 중)</cite>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Real-time Popular Works Grid by Genre (장르별 실시간 인기 글) -->
+        <section class="genre-popular-section">
+            <div class="section-container">
+                <div class="section-heading">
+                    <div>
+                        <h2>실시간 인기 글</h2>
+                        <p>독자들의 따뜻한 응원과 감상이 많이 모인 작품들입니다.</p>
+                    </div>
+                    
+                    <!-- Genre Filter Tabs -->
+                    <div class="genre-tabs" id="genreTabs">
+                        <button class="tab-btn active" data-genre="all">전체</button>
+                        <button class="tab-btn" data-genre="verse">🌿 운문 (시/디카시)</button>
+                        <button class="tab-btn" data-genre="prose">📖 산문 (수필/소설)</button>
+                        <button class="tab-btn" data-genre="drama">🎬 극/영상 (대본)</button>
+                        <button class="tab-btn" data-genre="music">🎵 기타/음악 (가사)</button>
+                    </div>
+                </div>
+
+                <!-- Grid Layout -->
+                <div class="cards-grid" id="popularGrid">
+                    <!-- Cards dynamically inserted via JS -->
+                </div>
+                
+                <div class="center-btn-wrapper">
+                    <a href="pages/gallery.html" class="btn btn-outline-dark">장르별 전체 작품 관람하기 <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Writer Lounge & Debut News Section -->
+        <section class="news-lounge-section">
+            <div class="section-container">
+                <div class="two-column-layout">
+                    
+                    <!-- Debut & Creative News -->
+                    <div class="column-box news-box">
+                        <div class="column-header">
+                            <h3><i class="fa-solid fa-bullhorn icon-accent"></i> 작가 데뷔 & 소식 알림</h3>
+                            <a href="pages/lounge.html" class="more-link">전체보기 <i class="fa-solid fa-angle-right"></i></a>
+                        </div>
+                        <ul class="news-list" id="newsList"></ul>
+                    </div>
+
+                    <!-- Featured Writer Spotlight -->
+                    <div class="column-box writer-spotlight-box">
+                        <div class="column-header">
+                            <h3><i class="fa-solid fa-star icon-accent"></i> 이달의 작가 라운지</h3>
+                            <span class="sub-tag">FEATURED CREATOR</span>
+                        </div>
+                        <div class="writer-card-spotlight" id="writerSpotlight"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Writing Encouragement CTA Section -->
+        <section class="cta-banner-section">
+            <div class="section-container">
+                <div class="cta-content">
+                    <div class="cta-text">
+                        <span class="cta-subtitle">당신의 노트를 세상에 열어주세요</span>
+                        <h2>서랍 속에 간직했던 당신의 이야기를 듣고 싶습니다</h2>
+                        <p>시 한 구절, 노랫말 한 줄, 마음에 품어둔 에세이까지. 글숲에서는 누구든 작가가 될 수 있습니다.</p>
+                    </div>
+                    <div class="cta-actions">
+                        <a href="pages/write.html" class="btn btn-gold btn-lg"><i class="fa-solid fa-pen-fancy"></i> 지금 작품 투고하기</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Reading Preview Modal (본문 + 댓글 기능 포함) -->
+    <div class="modal-overlay" id="readingModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-genre-tag" id="modalGenre">운문 · 시</div>
+                <button class="modal-close-btn" id="closeModalBtn" aria-label="닫기"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="modal-toolbar">
+                <div class="font-controls">
+                    <button id="fontDecBtn" title="글자 축소">A-</button>
+                    <button id="fontIncBtn" title="글자 확대">A+</button>
+                </div>
+                <div class="theme-controls">
+                    <button class="theme-dot ivory active" data-theme="ivory" title="아이보리 테마"></button>
+                    <button class="theme-dot warm" data-theme="warm" title="웜그레이 테마"></button>
+                    <button class="theme-dot dark" data-theme="dark" title="다크 테마"></button>
+                </div>
+            </div>
+
+            <div class="modal-body" id="modalBody">
+                <h2 class="modal-title" id="modalTitle">작품 제목</h2>
+                <div class="modal-author-info">
+                    <span class="author-name" id="modalAuthor">작가명</span>
+                    <span class="dot-sep">•</span>
+                    <span class="modal-date" id="modalDate">2026.10.01</span>
+                </div>
+
+                <div class="modal-text-content" id="modalText"></div>
+                <div class="modal-tags" id="modalTags"></div>
+
+                <!-- Comments Area -->
+                <div class="comments-section">
+                    <h3 class="comments-header-title">
+                        <i class="fa-regular fa-comments"></i> 독자 감상 & 댓글 (<span id="modalCommentsCount">0</span>)
+                    </h3>
+
+                    <!-- Comment Submission Form -->
+                    <form class="comment-form-box" id="homeModalCommentForm">
+                        <div class="comment-inputs-row">
+                            <input type="text" id="homeCommentAuthor" placeholder="닉네임 / 독자명" required>
+                        </div>
+                        <div class="comment-textarea-box">
+                            <textarea id="homeCommentText" placeholder="작품에 전하고 싶은 따뜻한 응원이나 감평을 남겨주세요..." required></textarea>
+                        </div>
+                        <div class="comment-form-footer">
+                            <button type="submit" class="btn btn-primary" style="padding: 6px 18px; font-size: 0.85rem;">
+                                <i class="fa-solid fa-paper-plane"></i> 댓글 등록
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Comments List -->
+                    <div class="comments-list-container" id="modalCommentsList"></div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="modal-stats">
+                    <button class="btn-like" id="likeBtn"><i class="fa-regular fa-heart"></i> <span id="likeCount">0</span></button>
+                    <span class="stat-item"><i class="fa-regular fa-eye"></i> <span id="viewCount">0</span></span>
+                </div>
+                <button class="btn btn-gold" onclick="alert('작가 후원 기능이 제공됩니다. ☕')"><i class="fa-solid fa-mug-hot"></i> 작가 후원하기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo-text">
+                        <span class="brand-title">글숲</span>
+                        <span class="brand-subtitle">종합 문학 & 창작 아틀리에</span>
+                    </div>
+                    <p class="footer-desc">글을 사랑하는 아마추어 작가와 따뜻한 독자들이 함께 만들어가는 서정적인 이야기 쉼터입니다.</p>
+                </div>
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4>작품 카테고리</h4>
+                        <ul>
+                            <li><a href="pages/gallery.html?genre=verse">운문 (시, 시조, 동시)</a></li>
+                            <li><a href="pages/gallery.html?genre=prose">산문 (수필, 에세이, 소설)</a></li>
+                            <li><a href="pages/gallery.html?genre=drama">극/영상 (시나리오, 대본)</a></li>
+                            <li><a href="pages/gallery.html?genre=music">기타 (음악 가사, 팟캐스트)</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>커뮤니티</h4>
+                        <ul>
+                            <li><a href="pages/lounge.html#tips">창작 팁 공유</a></li>
+                            <li><a href="pages/lounge.html#feedback">작품 합평회</a></li>
+                            <li><a href="pages/lounge.html#clubs">글쓰기 모임</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>고객지원 & 안내</h4>
+                        <ul>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">개인정보처리방침</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 글숲 (Geulsoop Atelier). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

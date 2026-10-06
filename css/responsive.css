@@ -1,0 +1,135 @@
+/* ==========================================================================
+   글숲 (Geulsoop) Responsive Stylesheet
+   ========================================================================== */
+
+/* Mobile Navigation Drawer Base */
+.mobile-nav-drawer {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100vh;
+    background-color: var(--bg-main);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    z-index: 1500;
+    transition: right var(--transition-normal);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-nav-drawer.open {
+    right: 0;
+}
+
+.mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 24px;
+}
+
+.mobile-nav-header button {
+    font-size: 1.4rem;
+    color: var(--text-main);
+}
+
+.mobile-nav-list li {
+    margin-bottom: 18px;
+}
+
+.mobile-nav-list a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile-nav-list a.active {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.mobile-actions {
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+    .slide-item {
+        grid-template-columns: 1fr;
+    }
+    
+    .slide-cover-art {
+        display: none;
+    }
+
+    .two-column-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav, .header-actions .search-box, .header-actions #loginBtn {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .genre-tabs {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 8px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .modal-body {
+        padding: 24px 20px;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+
+    .footer-links-group {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+}
